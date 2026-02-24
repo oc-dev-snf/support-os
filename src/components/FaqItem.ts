@@ -1,6 +1,6 @@
-import { CONTRACT_URL } from '../data'
+import { CONTRACT_URL, type FaqItem } from '../data'
 
-export function createFaqItem({ q, a }) {
+export function createFaqItem({ q, a }: FaqItem): HTMLDetailsElement {
   const details = document.createElement('details')
 
   const summary = document.createElement('summary')

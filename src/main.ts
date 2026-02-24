@@ -2,7 +2,8 @@ import './styles.css'
 import { faqSections } from './data'
 import { createFaqSection } from './components/FaqSection'
 
-const app = document.querySelector('#app')
+const app = document.querySelector<HTMLDivElement>('#app')
+if (!app) throw new Error('App root not found')
 
 app.innerHTML = `
   <header class="topbar">
@@ -23,5 +24,6 @@ app.innerHTML = `
   </main>
 `
 
-const sectionsRoot = document.querySelector('#sections')
+const sectionsRoot = document.querySelector<HTMLDivElement>('#sections')
+if (!sectionsRoot) throw new Error('Sections root not found')
 faqSections.forEach((section) => sectionsRoot.appendChild(createFaqSection(section)))

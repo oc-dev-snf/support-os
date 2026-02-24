@@ -1,6 +1,16 @@
 export const CONTRACT_URL = 'https://www.scottishwidows.co.uk/contact-us.html'
 
-export const faqSections = [
+export type FaqItem = {
+  q: string
+  a: string
+}
+
+export type FaqSection = {
+  title: string
+  items: FaqItem[]
+}
+
+export const faqSections: FaqSection[] = [
   {
     title: 'Insurance',
     items: [
