@@ -3,46 +3,90 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Support OS — FAQ PoC</title>
+  <title>Scottish Widows Support OS — FAQ PoC</title>
   <style>
     :root {
-      --bg: #0b1020;
-      --panel: #131a2e;
-      --panel-2: #18213a;
-      --text: #f4f6ff;
-      --muted: #bac4e0;
-      --accent: #7cc4ff;
-      --ok: #5ed39d;
-      --warn: #ffd17a;
-      --border: #2a355b;
+      --sw-purple: #4b286d;
+      --sw-purple-dark: #33184d;
+      --sw-lilac: #e9ddf5;
+      --sw-bg: #f7f4fb;
+      --sw-panel: #ffffff;
+      --sw-text: #1d1230;
+      --sw-muted: #5f4a78;
+      --sw-border: #d8c8ea;
+      --sw-link: #512b81;
+      --sw-success-bg: #eef8f2;
+      --sw-success-border: #92cfa8;
+      --sw-warn-bg: #fff7ed;
+      --sw-warn-border: #f1c38e;
     }
+
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1200px 500px at 20% -10%, #17244b 0%, var(--bg) 45%);
-      color: var(--text);
+      font-family: "Segoe UI", Inter, system-ui, -apple-system, Roboto, Arial, sans-serif;
+      color: var(--sw-text);
+      background: var(--sw-bg);
       line-height: 1.45;
     }
-    .wrap { width: min(980px, 92vw); margin: 3rem auto; }
-    h1 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 2.2vw, 2.2rem); }
-    .sub { color: var(--muted); margin: 0 0 1.5rem; }
-    .pill { display: inline-block; font-size: .78rem; color: #d7e8ff; border: 1px solid var(--border); background: #111a34; padding: .22rem .55rem; border-radius: 999px; margin-bottom: .75rem; }
+
+    .topbar {
+      background: linear-gradient(120deg, var(--sw-purple-dark), var(--sw-purple));
+      color: white;
+      padding: 14px 0;
+      border-bottom: 4px solid #6b3b99;
+    }
+    .topbar .inner,
+    .wrap { width: min(980px, 92vw); margin: 0 auto; }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+    .brand-badge {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      display: grid;
+      place-items: center;
+      font-size: .8rem;
+      opacity: .95;
+    }
+
+    .wrap { margin: 2rem auto 3rem; }
+    h1 { margin: 0 0 .45rem; font-size: clamp(1.5rem, 2.2vw, 2.2rem); color: var(--sw-purple-dark); }
+    .sub { color: var(--sw-muted); margin: 0 0 1.25rem; }
+
+    .poc {
+      display: inline-block;
+      font-size: .78rem;
+      background: var(--sw-lilac);
+      color: var(--sw-purple-dark);
+      border: 1px solid #c7b0df;
+      border-radius: 999px;
+      padding: .2rem .55rem;
+      margin-bottom: .75rem;
+      font-weight: 600;
+    }
 
     .section {
-      background: rgba(19, 26, 46, .75);
-      border: 1px solid var(--border);
+      background: var(--sw-panel);
+      border: 1px solid var(--sw-border);
       border-radius: 14px;
       padding: 1rem;
-      margin: 1rem 0 1.25rem;
-      backdrop-filter: blur(4px);
+      margin: 1rem 0 1.2rem;
+      box-shadow: 0 8px 20px rgba(75, 40, 109, .05);
     }
-    .section h2 { margin: .2rem 0 .9rem; font-size: 1.2rem; }
+    .section h2 { margin: .15rem 0 .8rem; color: var(--sw-purple); }
 
     details {
-      border: 1px solid var(--border);
+      border: 1px solid var(--sw-border);
       border-radius: 12px;
-      background: var(--panel);
+      background: #fff;
       margin: .6rem 0;
       overflow: hidden;
     }
@@ -50,66 +94,96 @@
       list-style: none;
       cursor: pointer;
       padding: .9rem 1rem;
-      font-weight: 600;
-      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      font-weight: 650;
+      background: #fcfaff;
       display: flex;
       justify-content: space-between;
-      gap: 1rem;
       align-items: center;
+      gap: .9rem;
     }
     summary::-webkit-details-marker { display: none; }
-    .chev { transition: transform .2s ease; color: var(--accent); }
+    .chev { color: var(--sw-purple); transition: transform .2s ease; }
     details[open] .chev { transform: rotate(90deg); }
 
-    .answer { padding: .9rem 1rem 1rem; border-top: 1px solid var(--border); color: #e7edff; }
+    .answer {
+      padding: .9rem 1rem 1rem;
+      border-top: 1px solid var(--sw-border);
+      color: #322247;
+      background: #fff;
+    }
+
     .helpful {
-      margin-top: .9rem;
-      padding-top: .8rem;
-      border-top: 1px dashed #32416e;
+      margin-top: .85rem;
+      padding-top: .75rem;
+      border-top: 1px dashed #ccb7e2;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: .55rem;
     }
-    .helpful span { color: var(--muted); font-size: .95rem; }
+    .helpful span { color: var(--sw-muted); font-size: .94rem; }
+
     .btn {
-      border: 1px solid var(--border);
-      background: #1a2544;
-      color: var(--text);
-      padding: .4rem .72rem;
+      border: 1px solid #b79ad5;
+      background: #f4ecfc;
+      color: var(--sw-purple-dark);
+      padding: .42rem .72rem;
       border-radius: 8px;
       cursor: pointer;
-      font-weight: 600;
+      font-weight: 650;
       font-size: .88rem;
     }
-    .btn:hover { filter: brightness(1.08); }
-    .btn.ok { border-color: #2f8d65; color: #d9ffed; background: #143828; }
-    .btn.no { border-color: #9d7940; color: #fff2d6; background: #3f2d12; }
+    .btn:hover { filter: brightness(0.98); }
+    .btn.ok { border-color: #8fc6a1; background: #edf8f1; color: #1f5f38; }
+    .btn.no { border-color: #e0b17a; background: #fff5e7; color: #8b581f; }
+
     .followup {
       display: none;
       margin-top: .55rem;
-      padding: .65rem .75rem;
+      padding: .64rem .75rem;
       border-radius: 8px;
       font-size: .92rem;
     }
     .followup.show { display: block; }
-    .followup.ok { background: #113726; border: 1px solid #286b4b; color: #cbffe8; }
-    .followup.no { background: #3d2a10; border: 1px solid #8c6633; color: #ffecc8; }
+    .followup.ok {
+      background: var(--sw-success-bg);
+      border: 1px solid var(--sw-success-border);
+      color: #1f5f38;
+    }
+    .followup.no {
+      background: var(--sw-warn-bg);
+      border: 1px solid var(--sw-warn-border);
+      color: #7a4b16;
+    }
 
     a.contract {
-      color: #d7ebff;
+      color: var(--sw-link);
       font-weight: 700;
-      text-decoration-thickness: 2px;
       text-underline-offset: 2px;
+      text-decoration-thickness: 2px;
     }
-    footer { margin-top: 2rem; color: #a8b3d3; font-size: .9rem; }
+
+    footer {
+      margin-top: 1.8rem;
+      color: var(--sw-muted);
+      font-size: .9rem;
+    }
   </style>
 </head>
 <body>
+  <header class="topbar">
+    <div class="inner">
+      <div class="brand">
+        <span class="brand-badge">SW</span>
+        <span>Scottish Widows — Support OS</span>
+      </div>
+    </div>
+  </header>
+
   <main class="wrap">
-    <span class="pill">PoC • Support OS</span>
+    <span class="poc">PoC</span>
     <h1>Frequently Asked Questions</h1>
-    <p class="sub">Accordion-style FAQ for Insurance, Protection and Investments. If an answer doesn’t help, we route users to the Scottish Widows contract page.</p>
+    <p class="sub">Accordion-style FAQ covering Insurance, Protection and Investments. If an answer doesn’t help, users are directed to the Scottish Widows contract page.</p>
 
     <section class="section">
       <h2>Insurance</h2>
@@ -202,7 +276,7 @@
     </section>
 
     <footer>
-      Note: PoC content only. For policy-specific wording, always refer to contract documentation.
+      PoC content only. For policy-specific wording, please refer to official contract documentation.
     </footer>
   </main>
 
