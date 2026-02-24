@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Scottish Widows Support OS — FAQ PoC</title>
   <style>
-    :root {
-      --sw-purple: #4b286d;
-      --sw-purple-dark: #33184d;
-      --sw-lilac: #e9ddf5;
-      --sw-bg: #f7f4fb;
+     :root {
+      --sw-red: #c8102e;
+      --sw-red-dark: #8f0f25;
+      --sw-pink: #fdecef;
+      --sw-bg: #fff7f8;
       --sw-panel: #ffffff;
-      --sw-text: #1d1230;
-      --sw-muted: #5f4a78;
-      --sw-border: #d8c8ea;
-      --sw-link: #512b81;
+      --sw-text: #2b1117;
+      --sw-muted: #7a3a46;
+      --sw-border: #f3c8d0;
+      --sw-link: #b1122d;
       --sw-success-bg: #eef8f2;
       --sw-success-border: #92cfa8;
       --sw-warn-bg: #fff7ed;
       --sw-warn-border: #f1c38e;
-    }
+    }    }
 
     * { box-sizing: border-box; }
     body {
@@ -31,10 +31,10 @@
     }
 
     .topbar {
-      background: linear-gradient(120deg, var(--sw-purple-dark), var(--sw-purple));
+      background: linear-gradient(120deg, var(--sw-red-dark), var(--sw-red));
       color: white;
       padding: 14px 0;
-      border-bottom: 4px solid #6b3b99;
+      border-bottom: 4px solid #d83a52;
     }
     .topbar .inner,
     .wrap { width: min(980px, 92vw); margin: 0 auto; }
@@ -58,15 +58,15 @@
     }
 
     .wrap { margin: 2rem auto 3rem; }
-    h1 { margin: 0 0 .45rem; font-size: clamp(1.5rem, 2.2vw, 2.2rem); color: var(--sw-purple-dark); }
+    h1 { margin: 0 0 .45rem; font-size: clamp(1.5rem, 2.2vw, 2.2rem); color: var(--sw-red-dark); }
     .sub { color: var(--sw-muted); margin: 0 0 1.25rem; }
 
     .poc {
       display: inline-block;
       font-size: .78rem;
-      background: var(--sw-lilac);
-      color: var(--sw-purple-dark);
-      border: 1px solid #c7b0df;
+      background: var(--sw-pink);
+      color: var(--sw-red-dark);
+      border: 1px solid #efb7c2;
       border-radius: 999px;
       padding: .2rem .55rem;
       margin-bottom: .75rem;
@@ -81,7 +81,7 @@
       margin: 1rem 0 1.2rem;
       box-shadow: 0 8px 20px rgba(75, 40, 109, .05);
     }
-    .section h2 { margin: .15rem 0 .8rem; color: var(--sw-purple); }
+    .section h2 { margin: .15rem 0 .8rem; color: var(--sw-red); }
 
     details {
       border: 1px solid var(--sw-border);
@@ -95,27 +95,27 @@
       cursor: pointer;
       padding: .9rem 1rem;
       font-weight: 650;
-      background: #fcfaff;
+      background: #fff7f8;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: .9rem;
     }
     summary::-webkit-details-marker { display: none; }
-    .chev { color: var(--sw-purple); transition: transform .2s ease; }
+    .chev { color: var(--sw-red); transition: transform .2s ease; }
     details[open] .chev { transform: rotate(90deg); }
 
     .answer {
       padding: .9rem 1rem 1rem;
       border-top: 1px solid var(--sw-border);
-      color: #322247;
+      color: #3a1a22;
       background: #fff;
     }
 
     .helpful {
       margin-top: .85rem;
       padding-top: .75rem;
-      border-top: 1px dashed #ccb7e2;
+      border-top: 1px dashed #efc8cf;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -124,9 +124,9 @@
     .helpful span { color: var(--sw-muted); font-size: .94rem; }
 
     .btn {
-      border: 1px solid #b79ad5;
-      background: #f4ecfc;
-      color: var(--sw-purple-dark);
+      border: 1px solid #e8a8b5;
+      background: #fff1f3;
+      color: var(--sw-red-dark);
       padding: .42rem .72rem;
       border-radius: 8px;
       cursor: pointer;
