@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Support OS — FAQ PoC</title>
+  <style>
+    :root {
+      --bg: #0b1020;
+      --panel: #131a2e;
+      --panel-2: #18213a;
+      --text: #f4f6ff;
+      --muted: #bac4e0;
+      --accent: #7cc4ff;
+      --ok: #5ed39d;
+      --warn: #ffd17a;
+      --border: #2a355b;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 500px at 20% -10%, #17244b 0%, var(--bg) 45%);
+      color: var(--text);
+      line-height: 1.45;
+    }
+    .wrap { width: min(980px, 92vw); margin: 3rem auto; }
+    h1 { margin: 0 0 .5rem; font-size: clamp(1.6rem, 2.2vw, 2.2rem); }
+    .sub { color: var(--muted); margin: 0 0 1.5rem; }
+    .pill { display: inline-block; font-size: .78rem; color: #d7e8ff; border: 1px solid var(--border); background: #111a34; padding: .22rem .55rem; border-radius: 999px; margin-bottom: .75rem; }
+
+    .section {
+      background: rgba(19, 26, 46, .75);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1rem;
+      margin: 1rem 0 1.25rem;
+      backdrop-filter: blur(4px);
+    }
+    .section h2 { margin: .2rem 0 .9rem; font-size: 1.2rem; }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--panel);
+      margin: .6rem 0;
+      overflow: hidden;
+    }
+    summary {
+      list-style: none;
+      cursor: pointer;
+      padding: .9rem 1rem;
+      font-weight: 600;
+      background: linear-gradient(180deg, var(--panel-2), var(--panel));
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
+    }
+    summary::-webkit-details-marker { display: none; }
+    .chev { transition: transform .2s ease; color: var(--accent); }
+    details[open] .chev { transform: rotate(90deg); }
+
+    .answer { padding: .9rem 1rem 1rem; border-top: 1px solid var(--border); color: #e7edff; }
+    .helpful {
+      margin-top: .9rem;
+      padding-top: .8rem;
+      border-top: 1px dashed #32416e;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: .55rem;
+    }
+    .helpful span { color: var(--muted); font-size: .95rem; }
+    .btn {
+      border: 1px solid var(--border);
+      background: #1a2544;
+      color: var(--text);
+      padding: .4rem .72rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: .88rem;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ok { border-color: #2f8d65; color: #d9ffed; background: #143828; }
+    .btn.no { border-color: #9d7940; color: #fff2d6; background: #3f2d12; }
+    .followup {
+      display: none;
+      margin-top: .55rem;
+      padding: .65rem .75rem;
+      border-radius: 8px;
+      font-size: .92rem;
+    }
+    .followup.show { display: block; }
+    .followup.ok { background: #113726; border: 1px solid #286b4b; color: #cbffe8; }
+    .followup.no { background: #3d2a10; border: 1px solid #8c6633; color: #ffecc8; }
+
+    a.contract {
+      color: #d7ebff;
+      font-weight: 700;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 2px;
+    }
+    footer { margin-top: 2rem; color: #a8b3d3; font-size: .9rem; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <span class="pill">PoC • Support OS</span>
+    <h1>Frequently Asked Questions</h1>
+    <p class="sub">Accordion-style FAQ for Insurance, Protection and Investments. If an answer doesn’t help, we route users to the Scottish Widows contract page.</p>
+
+    <section class="section">
+      <h2>Insurance</h2>
+
+      <details>
+        <summary>What is covered by my insurance policy? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Coverage depends on your selected policy and optional benefits. Core coverage typically includes defined events listed in your policy schedule, with exclusions in the terms.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>How do I make a claim? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Start a claim by contacting support with your policy number, date of event, and supporting documents. Claims are then assessed against your policy terms.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Protection</h2>
+
+      <details>
+        <summary>What is the difference between life cover and critical illness cover? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Life cover usually pays out on death during the policy term. Critical illness cover pays out if you’re diagnosed with a specified serious condition that meets policy definitions.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I change my level of protection later? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Some policies allow changes (for example, increasing or reducing cover), subject to underwriting and product rules at the time of change.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <section class="section">
+      <h2>Investments</h2>
+
+      <details>
+        <summary>How is investment risk explained? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Investment options are normally grouped by risk profile. Higher potential returns can come with higher volatility and potential loss, depending on market conditions.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+
+      <details>
+        <summary>Can I switch funds after I invest? <span class="chev">▶</span></summary>
+        <div class="answer">
+          Fund switching may be available depending on your product terms, notice periods, and any applicable charges.
+          <div class="helpful">
+            <span>Did this answer help?</span>
+            <button class="btn ok" data-help="yes">Yes</button>
+            <button class="btn no" data-help="no">No</button>
+            <div class="followup" aria-live="polite"></div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <footer>
+      Note: PoC content only. For policy-specific wording, always refer to contract documentation.
+    </footer>
+  </main>
+
+  <script>
+    const CONTRACT_URL = 'https://www.scottishwidows.co.uk/existing-customers.html';
+
+    document.querySelectorAll('.helpful').forEach((row) => {
+      const followup = row.querySelector('.followup');
+      row.querySelectorAll('button[data-help]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          const yes = btn.dataset.help === 'yes';
+          followup.className = 'followup show ' + (yes ? 'ok' : 'no');
+          if (yes) {
+            followup.textContent = 'Great — glad this helped.';
+          } else {
+            followup.innerHTML = `No problem. Please use the <a class="contract" href="${CONTRACT_URL}" target="_blank" rel="noopener">Scottish Widows contract page</a> for detailed product terms.`;
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
